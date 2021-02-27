@@ -9,21 +9,25 @@ const InputText = styled.input`
   width: 300px;
 `;
 
-function SearchBox({ onChangeText, text }) {
+function SearchBox({ padrao, onEnter }) {
   const [texto, setTexto] = useState("");
 
-  useEffect(() => {
-    if (onChangeText) {
-      onChangeText(texto);
+  function handleKeyUp(e) {
+    if (e.keyCode == 13) {
+      if (onEnter) {
+        onEnter(texto);
+      }
+      setTexto("");
     }
-  }, [texto]);
+  }
 
   return (
     <InputText
       type="text"
       value={texto}
       onChange={(e) => setTexto(e.target.value)}
-      placeholder={text ?? "Faça uma busca"}
+      onKeyUp={handleKeyUp}
+      placeholder={padrao ?? "Digite aluma coisa"}
     />
   );
 }

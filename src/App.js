@@ -13,22 +13,31 @@ function App() {
     ]);
   }, []);
 
-  function handleSearchInput(newText) {
-    setSearchText(newText);
+  function addAction(newItem) {
+    let newList = [...list, { title: newItem, done: false }];
+
+    setList(newList);
+  }
+
+  function handleToggleDone(index) {
+    let newList = [...list];
+
+    newList[index].done = !newList[index].done;
+
+    setList(newList);
   }
 
   return (
     <>
       <h1>Lista de Tarefas</h1>
 
-      <SearchBox onChangeText={handleSearchInput} />
-      <SearchBox text={searchText} />
+      <SearchBox padrao="Adicione um item" onEnter={addAction} />
 
       <hr />
 
       <ul>
         {list.map((item, index) => (
-          <li key={index}>
+          <li key={index} onClick={() => handleToggleDone(index)}>
             {item.done && <del>{item.title}</del>}
             {!item.done && item.title}
           </li>
