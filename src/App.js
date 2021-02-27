@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import Modal from "./components/Modal";
 
 function App() {
-  const [name, setName] = useState(localStorage.getItem("name"));
-
-  useEffect(() => {
-    localStorage.setItem("name", name);
-  }, [name]);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <button onClick={() => setOpen(true)}>Abrir Modal</button>
+      <Modal open={open} close={setOpen}>
+        <h1>Modal</h1>
+      </Modal>
     </>
   );
 }
