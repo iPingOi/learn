@@ -17,13 +17,13 @@ function App() {
               <Link to="/sobre">Sobre</Link>
             </li>
             <li>
-              <Link to="/categoria/esportes">Esportes</Link>
+              <Link to="/categoria?tipo=esportes">Esportes</Link>
             </li>
             <li>
-              <Link to="/categoria/noticias">Notícias</Link>
+              <Link to="/categoria?tipo=noticias">Notícias</Link>
             </li>
             <li>
-              <Link to="/categoria/viagem">Viagem</Link>
+              <Link to="/categoria?tipo=viagem&subtipo=newyork">Viagem</Link>
             </li>
           </ul>
         </nav>
@@ -39,7 +39,7 @@ function App() {
           <Sobre />
         </Route>
         {/* // Qualquer coisa que vier depois vai ser armazenado // Na variavel cat */}
-        <Route path="/categoria/:cat">
+        <Route path="/categoria">
           <Categoria />
         </Route>
       </Switch>
