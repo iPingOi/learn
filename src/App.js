@@ -38,9 +38,11 @@ function App() {
         <Route path="/sobre">
           <Sobre />
         </Route>
-        {/* // Qualquer coisa que vier depois vai ser armazenado // Na variavel cat */}
         <Route path="/categoria">
           <Categoria />
+        </Route>
+        <Route path="*">
+          <h1>Page Not Found</h1>
         </Route>
       </Switch>
 
