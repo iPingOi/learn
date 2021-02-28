@@ -26,7 +26,9 @@ function Home(props) {
       <br />
       <button onClick={handleGabriel}>Setar nome para Gabriel</button>
       <br />
+      <br />
       <button onClick={handleIncrement}>+1</button>
+      <br />
       <br />
       <button onClick={handleButton}>Ir para a página SOBRE</button>
     </>
