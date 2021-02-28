@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
+import Categoria from "./pages/Categoria";
 
 function App() {
   return (
@@ -15,6 +16,15 @@ function App() {
             <li>
               <Link to="/sobre">Sobre</Link>
             </li>
+            <li>
+              <Link to="/categoria/esportes">Esportes</Link>
+            </li>
+            <li>
+              <Link to="/categoria/noticias">Notícias</Link>
+            </li>
+            <li>
+              <Link to="/categoria/viagem">Viagem</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -25,8 +35,12 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/sobre">
+        <Route path="/sobre">
           <Sobre />
+        </Route>
+        {/* // Qualquer coisa que vier depois vai ser armazenado // Na variavel cat */}
+        <Route path="/categoria/:cat">
+          <Categoria />
         </Route>
       </Switch>
 
